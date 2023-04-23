@@ -95,6 +95,7 @@ public class DiceGameThree
         
         ///whatever dice they rolled
         int Player1diceSUM = 0;
+        int PlayerPOINT = 0;
         int Player2diceSUM = 0;
 
         // the value for this variable
@@ -236,11 +237,12 @@ public class DiceGameThree
                         //reset pot back to 0 after someone wins or loses the pot
                         pot = RESET_POT_TO_ZERO;
                         
-                        System.out.println("CPU now has " + Player2BAL);
+                        //displays current values of the player and CPU
+                        System.out.println("CPU now has " + Player2BAL + " and " + Player1 + " now has " + Player1BAL);
                         
                         
                         ///CPU gets money
-                        //flag = false;
+                        flag = false;
                         break;
                     //winning scenario
                     case 7:
@@ -255,6 +257,9 @@ public class DiceGameThree
                         //reset pot back to 0 after someone wins or loses the pot
                         pot = RESET_POT_TO_ZERO;
                         
+                        //displays current values of the player and CPU
+                        System.out.println("CPU now has " + Player2BAL + " and " + Player1 + " now has " + Player1BAL);
+                        
                         //flag = false;
                         break;
                     default:
@@ -263,18 +268,75 @@ public class DiceGameThree
                         //shooter loses and cpu becomes shooter
                         //flag = true;
                         System.out.println("You rolled a point number " + Player1diceSUM +  " roll again!!");
-                        int PlayerPOINT = Player1diceSUM;
+                        PlayerPOINT = Player1diceSUM;
                         //flag = false;
                         System.out.println("Your point is " + PlayerPOINT+ "");
+
+                        boolean playerT = true;
+                        while (playerT) 
+                        {
+                            int[] diceValues34 = diceGEN();
+                            DICE1 = diceValues34[0];
+                            DICE2 = diceValues34[1];
+                            Player1diceSUM = DICE1+DICE2;
+                            
+                            System.out.println("You rolled " + Player1diceSUM);
+                            
+                            if (Player1diceSUM == PlayerPOINT) 
+                            {
+                                System.out.println(Player1 + " rolled " + Player1diceSUM);
+                                System.out.println("You win!");
+                                System.out.println(Player1 + " gets the pot!");
+
+                                //add the pot to player1 balance
+                                Player1BAL = Player1BAL + pot;
+
+                                //reset pot back to 0 after someone wins or loses the pot
+                                pot = RESET_POT_TO_ZERO;
+                                
+                                //displays current values of the player and CPU
+                                System.out.println("CPU now has " + Player2BAL + " and " + Player1 + " now has " + Player1BAL);
+                                
+                                
+                                //PLayerT exit
+                                playerT = false;
+                                
+                                flag = false;   
+                            } 
+                            else if (Player1diceSUM == 7)
+                            {
+                                System.out.println("You lost the pot and now CPU is the shooter");
+
+
+
+
+
+
+
+                                playerT = false;
+                                
+                                
+                                
+                            }
+                            
+                            
+                            
+        
+                            
+                        }
                         break;
 
 
                     
                         
                 }
+                
                 System.out.println("You're inside the if statement");
-                flag=false;
+                //This flag will have them get kicked out of the if statement
+                //flag=false;
                 //write ur code here.
+                //Re-roll if they have point
+
                 
                 
                         
@@ -368,6 +430,63 @@ public class DiceGameThree
 
                 System.out.println("The sum of the dice rolled by CPU is "+ Player2diceSUM);
                 ///Switch statements
+
+                
+                
+                
+                ///Switch statements from player 1 First roll code (not finished)
+                switch (Player2diceSUM) 
+                {
+                    //Losing scenario
+                    case 2:
+                    case 3:
+                    case 12:
+                        System.out.println("CPU rolled " + Player2diceSUM);
+                        System.out.println("CPU lost!");
+                        System.out.println(Player1 + " gets the pot!");
+
+                        //add the pot to player1 balance
+                        Player1BAL = Player1BAL + pot;
+
+                        //reset pot back to 0 after someone wins or loses the pot
+                        pot = RESET_POT_TO_ZERO;
+                        
+                        System.out.println("CPU now has " + Player2BAL + " and " + Player1 + " now has " + Player1BAL);
+                        
+                        
+                        ///CPU gets money
+                        //flag = false;
+                        break;
+                    //winning scenario
+                    case 7:
+                    case 11:
+                        System.out.println("CPU rolled " + Player2diceSUM);
+                        System.out.println("CPU wins!");
+                        System.out.println("CPU gets the pot");
+
+                        //add the pot to player1CPU balance
+                        Player2BAL = Player2BAL + pot;
+
+                        //reset pot back to 0 after someone wins or loses the pot
+                        pot = RESET_POT_TO_ZERO;
+                        
+                        //flag = false;
+                        break;
+                    default:
+                        // code to continue game if he rolled a point number
+                        //once you roll a 7 after establishing a point number,
+                        //shooter loses and cpu becomes shooter
+                        //flag = true;
+                        System.out.println("You rolled a point number " + Player2diceSUM  + " roll again!!");
+                        int PlayerPOINT2 = Player2diceSUM;
+                        //flag = false;
+                        System.out.println("Your point is " + PlayerPOINT2+ "");
+                        break;
+
+
+                    
+                        
+                }
 
                 
                 
@@ -530,6 +649,8 @@ public class DiceGameThree
         ///This generates a number everytime its called
         
     }
+
+
 
 
 
