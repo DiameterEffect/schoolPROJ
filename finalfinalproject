@@ -1,4 +1,4 @@
-
+package hurry;
 import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
@@ -9,10 +9,10 @@ public class DiceGameThree
     
         //Variabiles for AI game
         private static double pot = 0;
-        private static double Player1BAL = 1000;
+        private static double Player1BAL = 20;
         private static double Player1BET = 0;
         
-        private static double Player2BAL = 1000;
+        private static double Player2BAL = 20;
         private static double PLayer2BET = 0;
         private static int DICE1 = 6;
         private static int DICE2 = 6;
@@ -507,7 +507,7 @@ public class DiceGameThree
 
 // need to pass Player 1, Player 2, and Player 1 and 2 bet then we determine the highest score from them and add
 // add it up from there each time they  run the menu
-    public static void HighScore(Player2BAL) 
+    public static void HighScore() 
     {
         ////For this we need to get Player 1 user name from
         /// AIcomputerGame and then print the content into the file
@@ -520,10 +520,10 @@ public class DiceGameThree
     public static void Player2Game()
     {
         double pot_1v1 = 0;
-        double Player1_1v1BAL = 1000;
+        double Player1_1v1BAL = 20;
         double Player1_1v1BET = 0;
         
-        double Player2_1v1BAL = 1000;
+        double Player2_1v1BAL = 20;
         double PLayer2_1v1BET = 0;
         int DICE1 = 6;
         int DICE2 = 6;
@@ -604,7 +604,7 @@ public class DiceGameThree
                 System.out.println(Player2_1v1 +" must match " + Player1_1v1 +  "'s bet");
 
                 PLayer2_1v1BET = Player1_1v1BET;
-                System.out.println(Player2_1v1 +" CPU betted " + PLayer2_1v1BET);                                
+                System.out.println(Player2_1v1 +"  betted " + PLayer2_1v1BET);                                
                 pot_1v1 = pot_1v1 + PLayer2_1v1BET;
                 
                 System.out.println("The total in the pot is now " + pot_1v1);
@@ -651,7 +651,7 @@ public class DiceGameThree
                         pot_1v1 = RESET_POT_TO_ZERO;
                         
                         //displays current values of the player and CPU
-                        System.out.println("CPU now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
+                        System.out.println(Player2_1v1 + " now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
                         
                         
                         ///CPU gets money
@@ -685,7 +685,7 @@ public class DiceGameThree
                         //flag = false;
                         System.out.println("Your point is " + Player1_1v1POINT+ "");
                          
-                        System.out.println("Re roll method must go here for when player 1 is shooter!!");
+                        //System.out.println("Re roll method must go here for when player 1 is shooter!!");
                         do
                         {
                             total = rollDice();
@@ -701,7 +701,7 @@ public class DiceGameThree
                                 pot_1v1 = RESET_POT_TO_ZERO;
                                 
                                 //displays current values of the player and CPU
-                                System.out.println("CPU now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
+                                System.out.println(Player2_1v1+" now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
                                 
                             
                                 ///CPU gets money
@@ -719,7 +719,7 @@ public class DiceGameThree
                                 pot_1v1 = RESET_POT_TO_ZERO;
                                 
                                 //displays current values of the player and CPU
-                                System.out.println("CPU now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
+                                System.out.println(Player2_1v1+" now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
 
                                 
 
@@ -738,11 +738,6 @@ public class DiceGameThree
                     
                 }
                 
-                System.out.println("You're inside the if statement");
-                //This flag will have them get kicked out of the if statement
-                //flag=false;
-                //write ur code here.
-                //Re-roll if they have point
 
                 
             }
@@ -756,14 +751,17 @@ public class DiceGameThree
                 System.out.println(Player2_1v1 + " turn to make a bet!");
                 System.out.println("Max number "+ Player2_1v1 + " can bet is " + Player2_1v1BAL);
                 System.out.println(Player2_1v1 + " how much would you like to bet?");
+                double answ2 = scannerObj.nextDouble();
+                PLayer2_1v1BET = answ2;
+                
             
                 while(PLayer2_1v1BET < 0 || PLayer2_1v1BET > Player2_1v1BAL )
                 {
                     System.out.println("Error, you must select a number greater than 0 or");
                     System.out.println("less than or equal to your balance which is " + Player2_1v1BAL);
                     System.out.println(Player2_1v1 + " How much would you like to bet?");
-                    double answ2 = scannerObj.nextDouble();
-                    PLayer2_1v1BET = answ2;
+                    double answ1 = scannerObj.nextDouble();
+                    PLayer2_1v1BET = answ1;
         
                 }
 
@@ -843,7 +841,7 @@ public class DiceGameThree
                         System.out.println("Your point is " + PlayerPOINT2+ "");
                         boolean player2TURN = false;
                         //String player2userName;
-                        System.out.println("Re roll method must go here for when" Player2_1v1 +" is the shooter!!!");
+                        //System.out.println("Re roll method must go here for when"+ Player2_1v1 +" is the shooter!!!");
                         // ReRollAfterPointForCPU();
                         do
                         {
@@ -860,7 +858,7 @@ public class DiceGameThree
                                 pot_1v1 = RESET_POT_TO_ZERO;
                                 
                                 //displays current values of the player and CPU
-                                System.out.println(Player2_1v1 +" now has " + Player2BAL + " and " + Player1 + " now has " + Player1BAL);
+                                System.out.println(Player2_1v1 +" now has " + Player2BAL + " and " + Player1_1v1 + " now has " + Player1BAL);
                                 
                             
                                 ///CPU gets money
@@ -878,7 +876,7 @@ public class DiceGameThree
                                 pot_1v1 = RESET_POT_TO_ZERO;
                                 
                                 //displays current values of the player and CPU
-                                System.out.println("CPU now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
+                                System.out.println(Player2_1v1+" now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
                 
                                 
                 
@@ -951,4 +949,3 @@ public class DiceGameThree
 
 
 }
-
