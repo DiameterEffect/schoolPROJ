@@ -853,12 +853,13 @@ public class DiceGameThree
                 
                                 //add the pot to CPU balance
                                 Player1_1v1BAL = Player1_1v1BAL + pot_1v1;
+
                 
                                 //reset pot back to 0 after someone wins or loses the pot
                                 pot_1v1 = RESET_POT_TO_ZERO;
                                 
                                 //displays current values of the player and CPU
-                                System.out.println(Player2_1v1 +" now has " + Player2BAL + " and " + Player1_1v1 + " now has " + Player1BAL);
+                                System.out.println(Player2_1v1 +" now has " + Player2_1v1BAL + " and " + Player1_1v1 + " now has " + Player1_1v1BAL);
                                 
                             
                                 ///CPU gets money
