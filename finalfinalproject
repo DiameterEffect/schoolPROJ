@@ -112,7 +112,9 @@ public class DiceGameThree
         System.out.println("Player starts with 20 dollars");
         System.out.println("If a player rolls a 7 or an 11 with two of the dice they");
         System .out.println("win the game and they take the cash. If player rolls a 2-3-12 they lose.");
-        System .out.println("Player wins");
+        System .out.println("if one of the player rolls a point number that is not 2-3-12-7 or 11,");
+        System .out.println("then we re roll the dice until player hits their POINT number then ");
+        System .out.println("player wins");
     }
     
     public static void AicomputerGame() 
